@@ -59,7 +59,8 @@
             <div class="col-sm-4 col-md-3">
                 <div class="card">
                     <h6 class="card-header bg-white">Filter
-                        <span type="reset" onclick="uncheck()" class="float-right" style="font-size: 14px;font-weight: 200;">Reset</span>
+                        <span type="reset" onclick="uncheck()" class="float-right"
+                            style="font-size: 14px;font-weight: 200;">Reset</span>
                     </h6>
                     <div class="card-body">
                         <form action="" class="all-form" id="duration">
@@ -171,6 +172,7 @@
                                     </div>
                                     <div class="col-sm-4" style="padding-left: 3rem;">
                                         <button class="btn btn-danger btn-sm">View Package</button>
+                                        <button type="button" id="test">Test</button>
                                     </div>
                                 </div>
                             </div>
@@ -181,16 +183,16 @@
         </div>
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     function uncheck() {
         // document.getElementById('duration', 'price', 'category').reset();
@@ -199,6 +201,26 @@
     // $(document).on('click', '#reset-duration', function(){
     //     $('#duration').prop('checked', false);
     // });
+    // getApi();
+
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVkQXQiOjE1ODQ0MTExMjYsImV4cGlyZWQiOiIyMDIwLTAzLTE3VDAyOjEyOjA2LjIxMDYyODUwMVoiLCJhZ2VudElEIjo1LCJhZ2VudENvZGUiOiJ0ZXN0IiwiYWdlbnROYW1lIjoiVEVTVCIsImFnZW50UGhvbmVOdW1iZXIiOiI2MjIxMjM0NTY3OCIsImFnZW50RW1haWwiOiJ0ZXN0QGFudGF2YXlhLmNvbSIsImRpc3RyaWJ1dGlvblR5cGVJRCI6Miwicm9sZXMiOlsiL3RvdXIvc2VyaWVzL2F2YWlsYWJpbGl0eSIsIi90b3VyL3Nlcmllcy9jYXRlZ29yeSIsIi90b3VyL21hc3Rlci9zZWFzb24iLCIvdG91ci9tYXN0ZXIvY291bnRyeSIsIi90b3VyL21hc3Rlci9yZWdpb24iLCIvdG91ci9tYXN0ZXIvdHlwZSIsIi90b3VyL21hc3Rlci9jYXRlZ29yeSJdfQ.a-1MYLUr343UBrlUKuXnIsB7spZFQQsvbNNaAEm-VQU';
+    let proxyurl = "https://cors-anywhere.herokuapp.com/";
+    let url = 'https://sandbox.antavaya.com/tour/series/availability';
+
+    $.ajax({
+        url: proxyurl+url,
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        method: 'POST',
+        data: {},
+        success: function(data){
+        console.log('succes: '+data);
+        }
+    });
+    $(document).on('click', '#test', function(){
+    })
+
 
 
 
